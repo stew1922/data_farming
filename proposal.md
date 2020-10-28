@@ -23,7 +23,7 @@
 ## **Datasets to be Used**
 * Alpaca API for ETF pricing
 * PyPI Backtesting library
-* Tradestation / CME / QUANDL API for futures
+* Tradestation / CME / QUANDL API for futures - [soybean](/raw_data/soybeans_daily.csv), [corn](/raw_data/corn_daily.csv), [wheat](/raw_data/wheat_daily.csv)
 * USDA crop data
 * NOAA weather data
 
@@ -36,4 +36,7 @@
     * i.e.- if report data is higher than expected, do ETF/futures prices drop?
 * [ ] Find correlations between ETFs and futures
 * [ ] Find correlations between weather data and crop volumes
+    - [ ] Find correlation between temp and volumes
+    - [ ] Find correlation between precipitation and volumes
+    - [ ] Find correlation between cloud cover and volumes
 * [ ] Run Monte Carlo simulation
