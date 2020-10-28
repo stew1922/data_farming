@@ -11,7 +11,7 @@
 
 ## **Outline**
 
-* Use correlations between weather, USDA crop data, etc. to predict the outcome of the next crop report and make a trading recommendation for either an ETF or a futures contract.
+* Use correlations between weather, USDA crop data, and ETF/futures pricing to predict the outcome of the next crop report and make a trading recommendation for either an ETF or a futures contract.
 * Use the PyPI Backtesting library to test our strategy.
 * Look at the correlation between ETFs and futures contracts to see if one instrument or the other is more sensitive.
 
