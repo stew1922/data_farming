@@ -36,7 +36,4 @@
     * i.e.- if report data is higher than expected, do ETF/futures prices drop?
 * [ ] Find correlations between ETFs and futures
 * [ ] Find correlations between weather data and crop volumes
-    - [ ] Find correlation between temp and volumes
-    - [ ] Find correlation between precipitation and volumes
-    - [ ] Find correlation between cloud cover and volumes
 * [ ] Run Monte Carlo simulation
