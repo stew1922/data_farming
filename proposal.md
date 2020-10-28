@@ -23,7 +23,7 @@
 ## **Datasets to be Used**
 * Alpaca API for ETF pricing
 * PyPI Backtesting library
-* Tradestation / CME / QUANDL API for futures - [soybean](/raw_data/soybeans_daily.csv), [corn](/raw_data/corn_daily.csv), [wheat](/raw_data/wheat_daily.csv)
+* Tradestation / CME / QUANDL API for futures - [soybean](/data/raw_data/soybeans_daily.csv), [corn](/data/raw_data/corn_daily.csv), [wheat](/data/raw_data/wheat_daily.csv)
 * USDA crop data
 * NOAA weather data
 
