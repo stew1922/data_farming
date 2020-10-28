@@ -26,9 +26,19 @@
 ## **Datasets to be Used**
 * Alpaca API for ETF pricing
 * PyPI Backtesting library
-* Tradestation/CME/QUANDL API for futures
+* Tradestation / CME / QUANDL API for futures
 * USDA crop data
 * NOAA weather data
 
-
 ## **_Rough_ Breakdown of Tasks**
+* [x] Create Outline
+* [ ] Find datasources
+* [ ] Clean datasources
+* [ ] Find correlations between reported crop data vs. expected crop data and ETFs/futures
+    * i.e.- if report data is higher than expected, do ETF/futures prices drop?
+* [ ] Find correlations between ETFs and futures
+* [ ] Find correlations between weather data and crop volumes
+    - [ ] Find correlation between temp and volumes
+    - [ ] Find correlation between precipitation and volumes
+    - [ ] Find correlation between cloud cover and volumes
+* [ ] Run Monte Carlo simulation
