@@ -22,6 +22,13 @@
 * If there is a strong correlation between weather and crop volumes, is Monte Carlo simulation a valid method for predicting the next reported volumes?
 
 
+
 ## **Datasets to be Used**
+* Alpaca API for ETF pricing
+* PyPI Backtesting library
+* Tradestation/CME/QUANDL API for futures
+* USDA crop data
+* NOAA weather data
+
 
 ## **_Rough_ Breakdown of Tasks**
