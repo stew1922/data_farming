@@ -10,17 +10,14 @@
 * Travis
 
 ## **Outline**
-
 * Use correlations between weather, USDA crop data, and ETF/futures pricing to predict the outcome of the next crop report and make a trading recommendation for either an ETF or a futures contract.
 * Use the PyPI Backtesting library to test our strategy.
 * Look at the correlation between ETFs and futures contracts to see if one instrument or the other is more sensitive.
 
 ## **Research Questions**
-* Is there a correlation between reported crop volumes vs. expected crop volumes and futures/ETF pricing?
-* Is there a strong correlation between futures market and the respective ETFs?
-* Is there a correlation between weather trends (precipitation, temperature, cloud cover(?), etc.) and the reported crop volumes?
-* If there is a strong correlation between weather and crop volumes, is Monte Carlo simulation a valid method for predicting the next reported volumes?
-
+* Is there a correlation between reported crop production vs. expected crop production and futures/ETF pricing?
+* Is there a relationship between futures market and the respective ETFs on the response to the crops report (i.e.- is one more sensitive than the other)?
+* Is Monte Carlo simulation a valid method for predicting the next reported volumes?
 
 
 ## **Datasets to be Used**
