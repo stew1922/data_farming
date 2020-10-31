@@ -6,7 +6,7 @@ import requests
 import pandas as pd
 import json
 
-def get_precipitation_and_average_temperature(station_id='KOMA', start_date='20001026', end_date='20201026'):
+def get_precipitation_and_average_temperature(station_id='KOMA', start_date='20001026', end_date='20201028'):
     '''Reads data from a designed and maintained API data source, Applied Climate Information 
     System (ACIS), by NOAA Regional Climate Centers (RCC), cleans the pulled data and returns 
     a dataframe of information.  Rows of missing values have been removed when specified by 'M'
