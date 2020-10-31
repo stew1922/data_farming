@@ -6,12 +6,12 @@ import requests
 import pandas as pd
 import json
 
-def get_precipitation_and_average_temperature(station_id='KOMA', start_date='20001026', end_date='20201028'):
+def get_precipitation_and_average_temperature(station_id, start_date, end_date):
     '''Reads data from a designed and maintained API data source, Applied Climate Information 
     System (ACIS), by NOAA Regional Climate Centers (RCC), cleans the pulled data and returns 
     a dataframe of information.  Rows of missing values have been removed when specified by 'M'
     from the original dataset and precipitation data marked originally by 'T' are replaced with
-    0.0001 to represent precipitation was captured on a given date, but no specific value was 
+    0.000000001 to represent precipitation was captured on a given date, but no specific value was 
     provided in the source dataset.
 
     Args: 
@@ -21,37 +21,43 @@ def get_precipitation_and_average_temperature(station_id='KOMA', start_date='200
 
     Returns: 
         A clean dataframe of information including column headings titled
-        date, precipitation, and average temperature
+        date, precipitation, and average temperature.  If arguments passed into function are 
+        missing then return message to user.
     '''
 
-    # API URL string
-    rcc_url = f'http://data.rcc-acis.org/StnData?sid={station_id}&sdate={start_date}&edate={end_date}&meta=name&elems=pcpn,avgt&output=json'
-    # Fetch current data
-    response_data = requests.get(rcc_url)
-    # Accept json format
-    data = response_data.json()
-    # Create dataframe
-    weather_data =  pd.DataFrame(data['data'])
+    # Check that arguments were passed by user
+    if station_id == '' or start_date == '' or end_date == '':
+        return 'Missing station id, start date or end date.'
+    # Arguments were passed successfully
+    else:
+        # API URL string
+        rcc_url = f'http://data.rcc-acis.org/StnData?sid={station_id}&sdate={start_date}&edate={end_date}&meta=name&elems=pcpn,avgt&output=json'
+        # Fetch current data
+        response_data = requests.get(rcc_url)
+        # Accept json format
+        data = response_data.json()
+        # Create dataframe
+        weather_data =  pd.DataFrame(data['data'])
 
-    # Create column headings and assign
-    weather_data.columns = ['date', 'precipitation', 'average_temperature']
+        # Create column headings and assign
+        weather_data.columns = ['date', 'precipitation', 'average_temperature']
 
-    # Drop rows with values of 'M'
-    index_rows = weather_data[weather_data.average_temperature == 'M'].index
-    clean_weather_data = weather_data.drop(index_rows)
-    # Replace values of 'T' with 0.0001 to represent a value other than 0 or False
-    # A measurement of precipitation was detected, but not provided
-    clean_weather_data['precipitation'] = clean_weather_data['precipitation'].replace('T', 0.0001)
+        # Drop rows with values of 'M'
+        index_rows = weather_data[weather_data.average_temperature == 'M'].index
+        clean_weather_data = weather_data.drop(index_rows)
+        # Replace values of 'T' with 0.000000001 to represent a value other than 0 or False
+        # A measurement of precipitation was detected, but not provided
+        clean_weather_data['precipitation'] = clean_weather_data['precipitation'].replace('T', 0.000000001)
 
-    # Change date values from object to datetime
-    clean_weather_data['date'] = pd.to_datetime(clean_weather_data['date'])
-    # Change precipitation values from object to type float
-    clean_weather_data['precipitation'] = clean_weather_data['precipitation'].astype(float)
-    # Change average_temperature values from object to type float
-    clean_weather_data['average_temperature'] = clean_weather_data['average_temperature'].astype(float)
+        # Change date values from object to datetime
+        clean_weather_data['date'] = pd.to_datetime(clean_weather_data['date'])
+        # Change precipitation values from object to type float
+        clean_weather_data['precipitation'] = clean_weather_data['precipitation'].astype(float)
+        # Change average_temperature values from object to type float
+        clean_weather_data['average_temperature'] = clean_weather_data['average_temperature'].astype(float)
 
-    # Set date index
-    clean_weather_data.set_index('date', inplace=True)
+        # Set date index
+        clean_weather_data.set_index('date', inplace=True)
 
-    # Return clean weather data
-    return clean_weather_data
+        # Return clean weather data
+        return clean_weather_data
