@@ -17,8 +17,8 @@ def get_precipitation_and_average_temperature(station_id, start_date, end_date):
 
     Args: 
         station_id (str): Weather station id (Example: 'KOMA')
-        start_date (str): Starting date range formatted as yyyymmdd
-        end_date (str): Ending date range formatted as yyyymmdd
+        start_date (str): Starting date range formatted as 'yyyymmdd'  or 'yyyy-mm-dd'
+        end_date (str): Ending date range formatted as 'yyyymmdd' or 'yyyy-mm-dd'
 
     Returns: 
         A clean dataframe of information including column headings titled
@@ -76,16 +76,16 @@ def for_state(state_name, start_date, end_date, return_format):
 
     Args:
         state_name (str): State postal abbreviation (Example: 'NE')
-        start_date (str): Starting date range formatted as 'yyyymmdd'
-        end_date (str): Ending date range formatted as 'yyyymmdd'
+        start_date (str): Starting date range formatted as 'yyyymmdd' or 'yyyy-mm-dd'
+        end_date (str): Ending date range formatted as 'yyyymmdd' or 'yyyy-mm-dd'
         return_format (str): Desired returned output is either 'csv' (comma separated
             value) or 'df' (dataframe)
 
     Returns:
         A clean dataframe of information including column headings titled
         date, precipitation, and average temperature if 'df' is specified or a 'csv'
-        file is created in .  If arguments passed into function are 
-        missing then return message to user.
+        file is created similar to the dataframe titled.  CSV Example: NE_weather_data_clean.csv.
+        If arguments passed into function are missing then return message to user.
     '''
     # Initialize variables
     # Dictionary of states and station codes.
@@ -126,8 +126,13 @@ def for_state(state_name, start_date, end_date, return_format):
 
         # Output to csv file
         elif return_format == 'csv':
-            # Create output path and write data to csv
-            csv_output_path = Path('./clean_data/state_weather_data_clean.csv')
+            # Create path string
+            path_str = f'./clean_data/{state_name}_weather_data_clean.csv'
+
+            # Create output path
+            csv_output_path = Path(path_str)
+            
+            # Write data to csv
             state_df.to_csv(csv_output_path)
         else:
             # Return message that return format not found
