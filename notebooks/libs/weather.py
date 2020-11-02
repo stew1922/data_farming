@@ -52,7 +52,7 @@ def get_precipitation_and_average_temperature(station_id, start_date, end_date):
 
         # Replace values of 'T' with 0.0001 to represent a value other than 0 or False
         # A measurement of precipitation was detected, but not provided
-        weather_data['precipitation'] = weather_data['precipitation'].replace('T', 0.0001)
+        weather_data['precipitation'].replace('T', 0.0001, inplace=True)
 
         # Change date values from object to datetime
         weather_data['date'] = pd.to_datetime(weather_data['date'])
