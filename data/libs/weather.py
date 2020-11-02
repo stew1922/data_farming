@@ -43,25 +43,30 @@ def get_precipitation_and_average_temperature(station_id, start_date, end_date):
         # Create column headings and assign
         weather_data.columns = ['date', 'precipitation', 'average_temperature']
 
-        # Drop rows with values of 'M'
-        index_rows = weather_data[weather_data.average_temperature == 'M'].index
-        clean_weather_data = weather_data.drop(index_rows)
-        # Replace values of 'T' with 0.000001 to represent a value other than 0 or False
+        # Drop rows with values of 'M' in precipitation column
+        index_precep_rows = weather_data[weather_data['precipitation'] == 'M'].index
+        weather_data.drop(index_precep_rows, inplace=True)
+
+        # Drop rows with values of 'M' in average temperature column
+        index_avgt_rows = weather_data[weather_data['average_temperature'] == 'M'].index
+        weather_data.drop(index_avgt_rows, inplace=True)
+
+        # Replace values of 'T' with 0.0001 to represent a value other than 0 or False
         # A measurement of precipitation was detected, but not provided
-        clean_weather_data['precipitation'] = clean_weather_data['precipitation'].replace('T', 0.000001)
+        weather_data['precipitation'] = weather_data['precipitation'].replace('T', 0.0001)
 
         # Change date values from object to datetime
-        clean_weather_data['date'] = pd.to_datetime(clean_weather_data['date'])
+        weather_data['date'] = pd.to_datetime(weather_data['date'])
         # Change precipitation values from object to type float
-        clean_weather_data['precipitation'] = clean_weather_data['precipitation'].astype(float)
+        weather_data['precipitation'] = weather_data['precipitation'].astype(float)
         # Change average_temperature values from object to type float
-        clean_weather_data['average_temperature'] = clean_weather_data['average_temperature'].astype(float)
+        weather_data['average_temperature'] = weather_data['average_temperature'].astype(float)
 
         # Set date index
-        clean_weather_data.set_index('date', inplace=True)
+        weather_data.set_index('date', inplace=True)
 
         # Return clean weather data
-        return clean_weather_data
+        return weather_data
 
 def for_state(state_name, start_date, end_date, return_format):
     '''Calls multiple stations in a specified state based on a timeframe, retrieves 
@@ -122,7 +127,7 @@ def for_state(state_name, start_date, end_date, return_format):
         # Output to csv file
         elif return_format == 'csv':
             # Create output path and write data to csv
-            csv_output_path = Path('../data/clean_data/test_state_weather_data.csv')
+            csv_output_path = Path('./clean_data/state_weather_data_clean.csv')
             state_df.to_csv(csv_output_path)
         else:
             # Return message that return format not found
