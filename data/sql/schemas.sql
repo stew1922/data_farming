@@ -28,3 +28,12 @@ CREATE TABLE temperatures (
 );
 
 SELECT * FROM temperatures;
+
+DROP TABLE IF EXISTS crop_name CASCADE;
+
+CREATE TABLE crop_name (
+	crop_id SERIAL PRIMARY KEY
+	, crop_name VARCHAR(255) 
+);
+
+SELECT * FROM crop_name;
