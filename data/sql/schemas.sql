@@ -7,10 +7,12 @@ CREATE TABLE states (
 
 SELECT * FROM states;
 
+DROP TABLE IF EXISTS temperatures  CASCADE;
+
 CREATE TABLE temperatures (
 	state_id INT NOT NULL,
 	FOREIGN KEY (state_id) REFERENCES states(state_id)
-	, year DATE NOT NULL
+	, year INT NOT NULL
 	, jan FLOAT NOT NULL
 	, feb FLOAT NOT NULL
 	, mar FLOAT NOT NULL
