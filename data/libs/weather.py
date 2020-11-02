@@ -5,13 +5,14 @@
 import requests
 import pandas as pd
 import json
+from pathlib import Path
 
 def get_precipitation_and_average_temperature(station_id, start_date, end_date):
     '''Reads data from a designed and maintained API data source, Applied Climate Information 
     System (ACIS), by NOAA Regional Climate Centers (RCC), cleans the pulled data and returns 
     a dataframe of information.  Rows of missing values have been removed when specified by 'M'
     from the original dataset and precipitation data marked originally by 'T' are replaced with
-    0.000000001 to represent precipitation was captured on a given date, but no specific value was 
+    0.000001 to represent precipitation was captured on a given date, but no specific value was 
     provided in the source dataset.
 
     Args: 
@@ -45,9 +46,9 @@ def get_precipitation_and_average_temperature(station_id, start_date, end_date):
         # Drop rows with values of 'M'
         index_rows = weather_data[weather_data.average_temperature == 'M'].index
         clean_weather_data = weather_data.drop(index_rows)
-        # Replace values of 'T' with 0.000000001 to represent a value other than 0 or False
+        # Replace values of 'T' with 0.000001 to represent a value other than 0 or False
         # A measurement of precipitation was detected, but not provided
-        clean_weather_data['precipitation'] = clean_weather_data['precipitation'].replace('T', 0.000000001)
+        clean_weather_data['precipitation'] = clean_weather_data['precipitation'].replace('T', 0.000001)
 
         # Change date values from object to datetime
         clean_weather_data['date'] = pd.to_datetime(clean_weather_data['date'])
@@ -61,3 +62,71 @@ def get_precipitation_and_average_temperature(station_id, start_date, end_date):
 
         # Return clean weather data
         return clean_weather_data
+
+def for_state(state_name, start_date, end_date, return_format):
+    '''Calls multiple stations in a specified state based on a timeframe, retrieves 
+    a daily precipitation and average temperature, if available, for each station, 
+    averages the data of the three weather stations, drops the calculated values 
+    returning null to now skew data, and combines values in a dataframe format.  
+
+    Args:
+        state_name (str): State postal abbreviation (Example: 'NE')
+        start_date (str): Starting date range formatted as 'yyyymmdd'
+        end_date (str): Ending date range formatted as 'yyyymmdd'
+        return_format (str): Desired returned output is either 'csv' (comma separated
+            value) or 'df' (dataframe)
+
+    Returns:
+        A clean dataframe of information including column headings titled
+        date, precipitation, and average temperature if 'df' is specified or a 'csv'
+        file is created in .  If arguments passed into function are 
+        missing then return message to user.
+    '''
+    # Initialize variables
+    # Dictionary of states and station codes.
+    # Can create a connection to a sql db in the future to store this information for data growth
+    state_station_codes = {
+        'NE': ['KOMA', 'KCDR', 'KMCK'],
+        'IA': ['KCID', 'KDSM', 'KALO'],
+        'IL': ['KORD', 'KMDW', 'KSPI']
+        }
+    list_of_stations = []
+    state_df = pd.DataFrame()
+
+    # Check for valid arguments passed in by user
+    if state_name == 'NE' or 'IA' or 'IL':
+        # Get station ids for selected state
+        list_of_stations = state_station_codes[state_name]
+
+        # Get weather data for each station
+        station_0 = get_precipitation_and_average_temperature(list_of_stations[0], start_date, end_date)
+        station_1 = get_precipitation_and_average_temperature(list_of_stations[1], start_date, end_date)
+        station_2 = get_precipitation_and_average_temperature(list_of_stations[2], start_date, end_date)
+        
+        # Add all station data into one dataframe
+        state_df = station_0 + station_1 + station_2
+
+        # Calculate average of combine data values
+        state_df = state_df / 3
+
+        # Round values in each column
+        state_df = state_df.round({'precipitation': 4, 'average_temperature': 1})
+
+        # Drop null values to now skew data
+        state_df.dropna(inplace=True)
+
+        # Return state dateframe
+        if return_format == 'df':
+            return state_df
+
+        # Output to csv file
+        elif return_format == 'csv':
+            # Create output path and write data to csv
+            csv_output_path = Path('../data/clean_data/test_state_weather_data.csv')
+            state_df.to_csv(csv_output_path)
+        else:
+            # Return message that return format not found
+            return 'Return format specified not found.  Pass in df or csv as a string.'
+    else: 
+        # Return message that state not found
+        return 'State not found.  Pass in NE, IA or IL as a string.'
