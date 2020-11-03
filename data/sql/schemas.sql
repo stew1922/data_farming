@@ -3,10 +3,13 @@ DROP TABLE IF EXISTS temperatures  CASCADE;
 DROP TABLE IF EXISTS crop_name CASCADE;
 DROP TABLE IF EXISTS crop_production_total CASCADE;
 DROP TABLE IF EXISTS precipitations  CASCADE;
+DROP TABLE IF EXISTS yearly_crop_production CASCADE;
 
 CREATE TABLE states (
 	state_id SERIAL PRIMARY KEY
 	, state_name CHAR(2)
+	, latitud DEC (10,6)
+	, longitud DEC (10,6)
 );
 
 SELECT * FROM states;
@@ -71,7 +74,7 @@ CREATE TABLE precipitations (
 SELECT * FROM precipitations;
 
 CREATE TABLE yearly_crop_production (
-	year DATE,
+	year INT,
 	state VARCHAR(255),
 	crop_name VARCHAR (255),
 	value BIGINT,
@@ -80,4 +83,9 @@ CREATE TABLE yearly_crop_production (
 	crop_id INT NOT NULL,
 	FOREIGN KEY (crop_id) REFERENCES crop_name(crop_id)
 );
+
+
 SELECT * FROM yearly_crop_production;
+
+
+SELECT * FROM temperatures;
