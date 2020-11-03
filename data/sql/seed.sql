@@ -4,7 +4,7 @@ INSERT INTO states
 (state_name)
 VALUES
 	('NE'),
-	('IO'),
+	('IA'),
 	('IL');
 
 INSERT INTO crop_name

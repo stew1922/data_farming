@@ -48,3 +48,23 @@ CREATE TABLE crop_production_total (
 	dec_1st BIGINT
 );
 SELECT * FROM crop_production_total;
+
+CREATE TABLE precipitations (
+	state_id INT NOT NULL,
+	FOREIGN KEY (state_id) REFERENCES states(state_id)
+	, year INT NOT NULL
+	, jan DEC(10,6) NOT NULL
+	, feb DEC(10,6) NOT NULL
+	, mar DEC(10,6) NOT NULL
+	, apr DEC(10,6) NOT NULL
+	, may DEC(10,6) NOT NULL
+	, jun DEC(10,6) NOT NULL
+	, jul DEC(10,6) NOT NULL
+	, ago DEC(10,6) NOT NULL
+	, sep DEC(10,6) NOT NULL
+	, oct DEC(10,6) NOT NULL
+	, nov DEC(10,6) NOT NULL
+	, dec DEC(10,6) NOT NULL
+);
+
+SELECT * FROM precipitations;
