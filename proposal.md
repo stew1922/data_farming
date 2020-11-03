@@ -29,9 +29,10 @@
 
 ## **_Rough_ Breakdown of Tasks**
 * [x] Create Outline
-* [ ] Find datasources
-* [ ] Clean datasources
-* [ ] Decide which crops to run the analysis on (corn, soybean, wheat?)
+* [x] Find datasources
+* [x] Clean datasources
+* [x] Decide which crops to run the analysis on (corn, soybean, wheat?)
+   * CORN
 * [ ] Find correlations between reported crop data vs. expected crop data and ETFs/futures
     * i.e.- if report data is higher than expected, do ETF/futures prices drop?
 * [ ] Find correlations between ETFs and futures
