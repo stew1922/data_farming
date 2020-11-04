@@ -11,7 +11,7 @@ def get_precipitation_and_average_temperature(station_id, start_date, end_date):
     System (ACIS), by NOAA Regional Climate Centers (RCC), cleans the pulled data and returns 
     a dataframe of information.  Rows of missing values have been removed when specified by 'M'
     from the original dataset and precipitation data marked originally by 'T' are replaced with
-    0.000000001 to represent precipitation was captured on a given date, but no specific value was 
+    0.0001 to represent precipitation was captured on a given date, but no specific value was 
     provided in the source dataset.
 
     Args: 
@@ -42,22 +42,27 @@ def get_precipitation_and_average_temperature(station_id, start_date, end_date):
         # Create column headings and assign
         weather_data.columns = ['date', 'precipitation', 'average_temperature']
 
-        # Drop rows with values of 'M'
-        index_rows = weather_data[weather_data.average_temperature == 'M'].index
-        clean_weather_data = weather_data.drop(index_rows)
-        # Replace values of 'T' with 0.000000001 to represent a value other than 0 or False
+        # Drop rows with values of 'M' in precipitation column
+        index_precep_rows = weather_data[weather_data['precipitation'] == 'M'].index
+        weather_data.drop(index_precep_rows, inplace=True)
+
+        # Drop rows with values of 'M' in average temperature column
+        index_avgt_rows = weather_data[weather_data['average_temperature'] == 'M'].index
+        weather_data.drop(index_avgt_rows, inplace=True)
+
+        # Replace values of 'T' with 0.0001 to represent a value other than 0 or False
         # A measurement of precipitation was detected, but not provided
-        clean_weather_data['precipitation'] = clean_weather_data['precipitation'].replace('T', 0.000000001)
+        weather_data['precipitation'].replace('T', 0.0001, inplace=True)
 
         # Change date values from object to datetime
-        clean_weather_data['date'] = pd.to_datetime(clean_weather_data['date'])
+        weather_data['date'] = pd.to_datetime(weather_data['date'])
         # Change precipitation values from object to type float
-        clean_weather_data['precipitation'] = clean_weather_data['precipitation'].astype(float)
+        weather_data['precipitation'] = weather_data['precipitation'].astype(float)
         # Change average_temperature values from object to type float
-        clean_weather_data['average_temperature'] = clean_weather_data['average_temperature'].astype(float)
+        weather_data['average_temperature'] = weather_data['average_temperature'].astype(float)
 
         # Set date index
-        clean_weather_data.set_index('date', inplace=True)
+        weather_data.set_index('date', inplace=True)
 
         # Return clean weather data
-        return clean_weather_data
+        return weather_data
