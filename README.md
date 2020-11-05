@@ -15,7 +15,15 @@ A group project via the Rice University FinTech Bootcamp to demonstrate "FinTech
 
 ## **General Information**
 
-- General information goes here
+- Investing in exchange traded funds (ETFs) and futures has advantages while making sure to do the appropriate research and analysis is necessary before making decisions.  This group of contributors wondered if there are any underlying process, commodities, and other factors that might sway specific areas of the futures and ETF markets, so set out on a two week journey to research, analyze and summarize various questions.
+
+    - 1. Is there a correlation between reported crop production vs. expected crop production and futures/ETF pricing?
+
+    - 2. Is there a relationship between futures market and the respective ETFs on the response to the crops report (i.e.- is one more sensitive than the other)?
+
+    - 3. Is Monte Carlo simulation a valid method for predicting the next reported volumes?
+
+- A status and summary of the groups findings are below.
 
 ---
 
@@ -23,16 +31,15 @@ A group project via the Rice University FinTech Bootcamp to demonstrate "FinTech
 
 ### - Is there a correlation between reported crop production vs. expected crop production and futures/ETF pricing?
 
-- Short description of what we found and any relevant plots go here
-
+- _Short description of what we found and any relevant plots go here_
 
 ### - Is there a relationship between futures market and the respective ETFs on the response to the crops report (i.e.- is one more sensitive than the other)?
 
-- Short description of what we found and any relevant plots go here
+- _Short description of what we found and any relevant plots go here_
 
 ### - Is Monte Carlo simulation a valid method for predicting the next reported volumes?
 
-- Short description of what we found and any relevant plots go here
+- _Short description of what we found and any relevant plots go here_
 
 ---
 
@@ -66,12 +73,11 @@ A group project via the Rice University FinTech Bootcamp to demonstrate "FinTech
 
 ## **Sources**
 
+- https://rice.bootcampcontent.com/Rice-Coding-Bootcamp/rice-hou-fin-pt-09-2020-u-c/blob/master/class/08-Project_1/fintech-projects-collaboration-with-git-v1.0.0.pdf
+
 - http://www.rcc-acis.org/index.html
 
 - 
-
-- 
-  
 
 ---
 
