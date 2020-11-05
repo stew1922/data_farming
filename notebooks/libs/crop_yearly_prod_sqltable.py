@@ -71,7 +71,7 @@ load_dotenv()
 # %%
 my_postgres_userid = os.getenv("POSTGRES_USER_ID")
 my_postgres_password = os.getenv("POSTGRES_PASSWORD")
-dbsession2 = psycopg2.connect(database = "crop_prod", user= my_postgres_userid, password = my_postgres_password)
+dbsession2 = psycopg2.connect(database = "crop_prod_db", user= my_postgres_userid, password = my_postgres_password)
 dbcursor = dbsession2.cursor()
 dbsession2.autocommit = True
 
