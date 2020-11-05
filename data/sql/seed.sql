@@ -3,7 +3,7 @@
 INSERT INTO states
 (state_name, latitud, longitud)
 VALUES
-	('NE', 41.256538, -95.934502),
+	('NE', 41.978410, -100.574310),
 	('IA', 41.586834, -93.624962),
 	('IL', 38.317610, -88.904730);
 
