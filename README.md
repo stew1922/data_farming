@@ -4,7 +4,7 @@ A group project via the Rice University FinTech Bootcamp to demonstrate "FinTech
 ---
 
 ## **Table of Contents**
-* [General Information](#general-info)
+* [General Information](#general-information)
 * [Research Questions](#research-questions)
 * [Screenshots](#screenshots)
 * [Technologies](#technologies)
@@ -32,11 +32,11 @@ A group project via the Rice University FinTech Bootcamp to demonstrate "FinTech
 
 ### - Is there a relationship between futures market and the respective ETFs on the response to the crops report (i.e.- is one more sensitive than the other)?
 
-- _Short description of what we found and any relevant plots go here_
+- The futures market tends to have more volatility when looking at continuous prompt month pricing for futures, but that is driven by the fact that the ETF is comprised of several futures contracts across tenors.  This dampens volatitily as entire curve structure will shift less than volatility in front which is more sensitive to short lived supply/demand disruptions such as weather.
 
 ### - Is there a correlation between reported crop production vs. expected crop production and futures/ETF pricing?
 
-- _Short description of what we found and any relevant plots go here_
+- There appears to be more of a relationship betweeen dislocations in the futures and etf price moves when looking at overall inventory level and inventory level changes then there does with production data points becoming available.  Inventory and production are obviously related, so there is defintely some seasonality because of when get actual production data at year end versus the forecasts throughout the year as go through harvest season.
 
 ### - Is Monte Carlo simulation a valid method for predicting the next reported volumes?
 
