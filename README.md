@@ -48,15 +48,15 @@ A group project via the Rice University FinTech Bootcamp to demonstrate "FinTech
 
 * Estimating production data with possible trigger indicators
 
-* ![Monthly WASD Moving Average Report](./images/wasde_monthly_ma.png)
+* ![Monthly WASD Moving Average Report](./images/wasde_monthly_ma.PNG)
 
 * Precipitation vs Production
 
-* ![Precipation vs Production](./images/)
+* ![Precipation vs Production](./images/corn_estimate.png)
 
 * ETF vs Futures rolling correlation
 
-* ![Precipation vs Production](./images/)
+* ![Precipation vs Production](./images/jg_fig_temp.png)
 
 ---
 
@@ -94,7 +94,11 @@ A group project via the Rice University FinTech Bootcamp to demonstrate "FinTech
 
 - http://www.rcc-acis.org/index.html
 
-- 
+- https://quickstats.nass.usda.gov/api
+
+- https://usda.library.cornell.edu/concern/publications/3t945q76s?locale=en
+
+- https://www.pnas.org/content/114/35/9326
 
 ---
 
