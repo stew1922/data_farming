@@ -6,6 +6,7 @@ A group project via the Rice University FinTech Bootcamp to demonstrate "FinTech
 ## **Table of Contents**
 * [General Information](#general-info)
 * [Research Questions](#research-questions)
+* [Screenshots](#screenshots)
 * [Technologies](#technologies)
 * [Sources](#sources)
 * [Status](#status)
@@ -40,6 +41,22 @@ A group project via the Rice University FinTech Bootcamp to demonstrate "FinTech
 ### - Is Monte Carlo simulation a valid method for predicting the next reported volumes?
 
 - _Short description of what we found and any relevant plots go here_
+
+---
+
+## Screenshots
+
+* Estimating production data with possible trigger indicators
+
+* ![Monthly WASD Moving Average Report](./images/wasde_monthly_ma.png)
+
+* Precipitation vs Production
+
+* ![Precipation vs Production](./images/)
+
+* ETF vs Futures rolling correlation
+
+* ![Precipation vs Production](./images/)
 
 ---
 
