@@ -16,7 +16,7 @@ def wasde_monthly_ma():
     clean_df = clean_df.set_index('date')
 
     # create our base-line production plot
-    prod_plot = (clean_df['production']/1000).hvplot(title='WASDE Monthly Estimated Production', ylabel='Production, Billion Bu', rot=45, xticks=9)
+    prod_plot = (clean_df['production']/1000).hvplot(title='WASDE Annual Projection', ylabel='Production, Billion Bu', rot=45, xticks=9)
     prod_plot
 
     # monthly data, so 1 year = 12 * 1 and 5 year = 12 * 5
@@ -30,8 +30,8 @@ def wasde_monthly_ma():
     ewm5.rename(columns={'production':'EMA 5-year'}, inplace=True)
 
     # create the ema plots
-    ewm1_plot = ewm1['EMA 1-year'].hvplot(title='WASDE Monthly Estimated Production', ylabel='Production, Billion Bu', line_width=2.5, color='darkorange')
-    ewm5_plot = ewm5['EMA 5-year'].hvplot(title='WASDE Monthly Estimated Production', ylabel='Production, Billion Bu', color='magenta', line_width=2.5)
+    ewm1_plot = ewm1['EMA 1-year'].hvplot(title='WASDE Annual Projection', ylabel='Production, Billion Bu', line_width=2.5, color='darkorange')
+    ewm5_plot = ewm5['EMA 5-year'].hvplot(title='WASDE Annual Projection', ylabel='Production, Billion Bu', color='magenta', line_width=2.5)
 
     # return the combined plot of moving averages
     return (prod_plot * ewm1_plot * ewm5_plot).opts(frame_height=300, legend_position='bottom_right', show_grid=True)
