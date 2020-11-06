@@ -1,9 +1,6 @@
 # Function to graph up Exponential Moving Averages for the monthly WASDE estimates
 def wasde_monthly_ma():
-    from pathlib import Path
-    import pandas as pd
-    import hvplot.pandas
-
+    
     # pull in the data from the consolidated wasde monthly reports
     clean_data_path = Path('../../data/clean_data/monthly_wasde_reports.csv')
 
