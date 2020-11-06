@@ -52,7 +52,7 @@ A group project via the Rice University FinTech Bootcamp to demonstrate "FinTech
 
 * Precipitation vs Production
 
-* ![Precipation vs Production](./images/corn_estimate.png)
+* ![Precipation vs Production](./images/corn_aprt_vs_prod.png)
 
 * ETF vs Futures rolling correlation
 
