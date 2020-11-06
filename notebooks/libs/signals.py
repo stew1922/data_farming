@@ -1,7 +1,11 @@
 # Function to graph up Exponential Moving Averages for the monthly WASDE estimates
 def wasde_monthly_ma():
+    from pathlib import Path
+    import pandas as pd
+    import hvplot.pandas
+
     # pull in the data from the consolidated wasde monthly reports
-    clean_data_path = Path('../../Data/clean_data/monthly_wasde_reports.csv')
+    clean_data_path = Path('../../data/clean_data/monthly_wasde_reports.csv')
 
     # convert the date to datetimes and set as index
     clean_df = pd.read_csv(clean_data_path, parse_dates=True, infer_datetime_format=True)
