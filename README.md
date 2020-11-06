@@ -4,7 +4,7 @@ A group project via the Rice University FinTech Bootcamp to demonstrate "FinTech
 ---
 
 ## **Table of Contents**
-* [General Information](#general-info)
+* [General Information](#general-information)
 * [Research Questions](#research-questions)
 * [Screenshots](#screenshots)
 * [Technologies](#technologies)
