@@ -18,9 +18,9 @@ A group project via the Rice University FinTech Bootcamp to demonstrate "FinTech
 
 - Investing in exchange traded funds (ETFs) and futures has advantages while making sure to do the appropriate research and analysis is necessary before making decisions.  This group of contributors wondered if there are any underlying process, commodities, and other factors that might sway specific areas of the futures and ETF markets, so set out on a two week journey to research, analyze and summarize various questions.
 
-    - 1. Is there a correlation between reported crop production vs. expected crop production and futures/ETF pricing?
+    - 1. Is there a relationship between futures market and the respective ETFs on the response to the crops report (i.e.- is one more sensitive than the other)?
 
-    - 2. Is there a relationship between futures market and the respective ETFs on the response to the crops report (i.e.- is one more sensitive than the other)?
+    - 2. Is there a correlation between reported crop production vs. expected crop production and futures/ETF pricing?
 
     - 3. Is Monte Carlo simulation a valid method for predicting the next reported volumes?
 
@@ -30,17 +30,17 @@ A group project via the Rice University FinTech Bootcamp to demonstrate "FinTech
 
 ## **Research Questions**
 
-### - Is there a correlation between reported crop production vs. expected crop production and futures/ETF pricing?
+### - Is there a relationship between futures market and the respective ETFs on the response to the crops report (i.e.- is one more sensitive than the other)?
 
 - _Short description of what we found and any relevant plots go here_
 
-### - Is there a relationship between futures market and the respective ETFs on the response to the crops report (i.e.- is one more sensitive than the other)?
+### - Is there a correlation between reported crop production vs. expected crop production and futures/ETF pricing?
 
 - _Short description of what we found and any relevant plots go here_
 
 ### - Is Monte Carlo simulation a valid method for predicting the next reported volumes?
 
-- _Short description of what we found and any relevant plots go here_
+- Monte Carlo simulation is a valid method for determining a range of reported volumes, while conducting further analysis on the collected data is needed to determine validity.
 
 ---
 
