@@ -1,6 +1,6 @@
 # Function to graph up Exponential Moving Averages for the monthly WASDE estimates
 def wasde_monthly_ma():
-    
+
     # pull in the data from the consolidated wasde monthly reports
     clean_data_path = Path('../../data/clean_data/monthly_wasde_reports.csv')
 
@@ -29,4 +29,4 @@ def wasde_monthly_ma():
     ewm5_plot = ewm5['EMA 5-year'].hvplot(title='WASDE Monthly Estimated Production', ylabel='Production, Billion Bu', color='magenta', line_width=2.5)
 
     # return the combined plot of moving averages
-    return(prod_plot * ewm1_plot * ewm5_plot).opts(frame_height=300, legend_position='bottom_right')
+    return (prod_plot * ewm1_plot * ewm5_plot).opts(frame_height=300, legend_position='bottom_right', show_grid=True)
