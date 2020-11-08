@@ -149,5 +149,5 @@ Project is: _In Progress_
 
 - Carolina Benzaquen
 - Jordan Gross
-- Jonthan Owens
+- Jonathan Owens
 - Travis Stewart
