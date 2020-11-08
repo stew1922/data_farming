@@ -61,7 +61,11 @@ A group project via the Rice University FinTech Bootcamp to demonstrate "FinTech
 
 * ETF vs Futures rolling correlation
 
-* ![Precipation vs Production](./images/jg_fig_temp.png)
+* ![Precipation vs Production](./images/rolling_plot.png)
+
+* State Production Baseline and Yield Comparison
+
+* ![Precipation vs Production](./images/average_annual_crop_production_by_state_mapbox.png)
 
 ---
 ## **Postgress Database and Table Seedings** 
